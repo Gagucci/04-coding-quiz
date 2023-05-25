@@ -1,0 +1,38 @@
+* {
+  box-sizing: border-box;
+  font-family: "Manjari", sans-serif;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+}
+
+header {
+  width: 100%;
+  background-color: #eb8484;
+  margin: auto;
+  position: relative;
+  bottom: 20px;
+  flex-direction: row;
+  color: white;
+  padding: 20px;
+}
+
+.center {
+}
+
+#timer {
+  width: 100px;
+  height: 20px;
+  position: relative;
+  float: left;
+  font-size: 35px;
+  bottom: 15px;
+  right: 10px;
+}
+
+header h2 {
+  margin: auto;
+  width: 50%;
+}

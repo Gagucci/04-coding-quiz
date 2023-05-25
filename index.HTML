@@ -4,19 +4,28 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>The Coding Pop Quiz!</title>
     <link rel="stylesheet" href="./Assets/style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Manjari:wght@100;400;700&display=swap"
+      rel="stylesheet"
+    />
+    <title>The Coding Pop Quiz!</title>
   </head>
   <body>
     <header>
-      <h2>The Coding Pop Quiz!</h2>
-      <div id="timer"></div>
+      <div class="center">
+        <h2>The Coding Pop Quiz!</h2>
+      </div>
+      <div id="timer">Time: <span id="time">60</span></div>
       <button id="highscore">High scores</button>
     </header>
     <main id="quiz">
       <h1>Ready to test your coding knowledge?</h1>
       <button id="start">Get Started</button>
     </main>
+    <div id="questions" class=""></div>
     <script src="./Assets/script.js"></script>
   </body>
 </html>
