@@ -1,9 +1,6 @@
 * {
   box-sizing: border-box;
   font-family: "Manjari", sans-serif;
-}
-
-body {
   margin: 0;
   padding: 0;
 }
@@ -11,11 +8,9 @@ body {
 header {
   width: 100%;
   background-color: #eb8484;
-  margin: auto;
   position: relative;
-  bottom: 20px;
   color: white;
-  padding: 20px;
+  padding: 10px;
 }
 
 .bd {
@@ -24,26 +19,61 @@ header {
 
 .header--title {
   text-align: center;
+  font-size: 35px;
+  margin: 0;
+  padding: 0;
+  align-content: center;
 }
 
 .timer-container {
   height: 25px;
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: space-around;
+  font-size: 25px;
+}
+
+.hs {
+  border: none;
+  background-color: inherit;
+  padding: 14px 28px;
+  font-size: 25px;
+  cursor: pointer;
+  display: inline-block;
+  color: white;
+}
+
+.start-container {
+  flex-direction: column;
+  height: 75vh;
+  text-align: center;
+  margin: 10px;
+  padding: 10px;
+  justify-content: center;
+  color: #938e8d;
+}
+
+.start-container h1 {
+  margin-top: 20px;
+  font-size: 35px;
+}
+
+.start-container button {
+  padding: 10px;
+  position: relative;
+  top: 400px;
+  font-size: 50px;
+  border-radius: 10px;
+  border: none;
+  color: #938e8d;
 }
 
 .dynamic-box {
-  width: 50px;
   height: 50px;
+  width: 50px;
   border: 1px solid blue;
 }
 
-.left {
-}
-
-.right {
-}
-
 .hidden {
+  display: none;
 }
