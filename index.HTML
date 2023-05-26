@@ -15,17 +15,33 @@
   </head>
   <body>
     <header>
-      <div class="center">
-        <h2>The Coding Pop Quiz!</h2>
+      <div class="header--title">
+        <h2 class="bd">The Coding Pop Quiz!</h2>
       </div>
-      <div id="timer">Time: <span id="time">60</span></div>
-      <button id="highscore">High scores</button>
+
+      <div class="timer-container">
+        <div id="timer" class="left">Time: <span id="time">120</span></div>
+        <button id="highscore" class="right">High scores</button>
+      </div>
     </header>
-    <main id="quiz">
+
+    <main id="start-page" class="bd">
       <h1>Ready to test your coding knowledge?</h1>
-      <button id="start">Get Started</button>
+      <button id="start-button">Get Started</button>
     </main>
-    <div id="questions" class=""></div>
+    <div id="quiz" class="hidden">
+      <h2 id="questions"></h2>
+      <div id="answers"></div>
+    </div>
+    <div id="end-screen" class="hidden">
+      <h2>Time's up!</h2>
+      <p>Here's what you got: <span id="user-score"></span></p>
+      <p>
+        Your name:
+        <input type="text" id="user-name" max="50" />
+        <button id="submit-button">Submit!</button>
+      </p>
+    </div>
     <script src="./Assets/script.js"></script>
   </body>
 </html>
