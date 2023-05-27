@@ -14,7 +14,28 @@ var timeInterval;
 var questions;
 var questionIndex;
 
-const qArr = [1, 2, 3, 4, 5, 6];
+const qArr = [
+  {
+    ask: "What is SEO?",
+    choices: [
+      "Separate every organization",
+      "Super energetic otters",
+      "Search engine offer ",
+      "Search engine optimization",
+    ],
+    answer: "Search engine optimization",
+  },
+  {
+    ask: "Which CSS property allows you to center a h1 element",
+    choices: ["justify-content", "align-items", "align-content", "text-align"],
+    answer: "text-align",
+  },
+  {
+    ask: "Which one of these choices is === to '100'",
+    choices: [100, "one hundred", 50 * 2, "100"],
+    answer: "100",
+  },
+];
 console.log(qArr[questionIndex]);
 
 startButton.addEventListener("click", () => {
