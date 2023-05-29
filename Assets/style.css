@@ -50,6 +50,29 @@ header {
   opacity: 0.75;
 }
 
+.hero {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 30px;
+}
+.code {
+  display: flex;
+  width: 250;
+  height: 200px;
+  justify-content: center;
+  align-items: center;
+}
+
+.meme {
+  display: flex;
+  position: relative;
+  bottom: 30px;
+  width: 250px;
+  height: 250px;
+  justify-content: center;
+}
+
 .start-container {
   flex-direction: column;
   height: 25vh;
@@ -61,6 +84,8 @@ header {
 }
 
 .start-container h1 {
+  position: relative;
+  top: 30px;
   font-size: 35px;
 }
 
@@ -76,33 +101,8 @@ header {
 
 .start-container button:hover {
   font-size: 60px;
-}
-
-.hero {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  margin: 10px;
-}
-.code {
-  display: flex;
-  width: 250;
-  height: 200px;
-  justify-content: center;
-  align-items: center;
-}
-
-.meme {
-  display: flex;
-  width: 250px;
-  height: 250px;
-  justify-content: center;
-}
-
-.dynamic-box {
-  height: 50px;
-  width: 50px;
-  border: 1px solid blue;
+  color: #d5cd33;
+  border: 1px solid #d5cd33;
 }
 
 .hidden {
