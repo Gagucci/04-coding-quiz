@@ -12,8 +12,8 @@ var userName = document.getElementById("user-name");
 var submitButton = document.getElementById("submit-button");
 var seconds = 120;
 var questionIndex = 0;
-var timeInterval;
 var questionIndex;
+var timeInterval;
 
 const qArr = [
   {
@@ -59,14 +59,7 @@ startButton.addEventListener("click", function () {
 });
 // create element
 function generateQuiz() {
-  var currentQuestion = qArr[questionIndex];
-  questions.textContent = currentQuestion;
-  currentQuestion.choices.forEach(function (choice) {
-    var choiceButton = document.createElement("button");
-    choiceButton.textContent = choice;
-    choiceButton.setAttribute("value", choice);
-    Options.append(choiceButton);
-  });
+  questions.textContent = qArr[questionIndex].ask;
 }
 //   add class to apply properties (class should already exist in css/ can be added/modified)
 box.classList.add("dynamic-box");
