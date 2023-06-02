@@ -33,7 +33,7 @@ const qArr = [
   },
   {
     ask: "Which one of these choices is === to '100'",
-    choices: [100, "one hundred", 50 * 2, "100"],
+    choices: ["100", "one hundred", "50 * 2", "100"],
     answer: "100",
   },
   {
@@ -42,32 +42,56 @@ const qArr = [
     answer: "[]",
   },
 ];
-console.log(qArr[questionIndex]);
+
+(function initLS() {
+  var dataFromLS = JSON.parse(localStorage.getItem("highscores")); // find an item in LS with the name of 'highscores'
+
+  // if that item doesn't exist, we create it and store it in LS under the name 'highscores'
+  if (!dataFromLS) {
+    localStorage.setItem("highscores", JSON.stringify({}));
+  }
+})();
+
+// Function that generates questions with answers on screen.
+function generateQuiz() {
+  answers.innerHTML = "";
+  var activeQue = qArr[questionIndex];
+  questions.textContent = activeQue.ask;
+  quiz.classList.add("questions");
+
+  for (let i = 0; i < activeQue.choices.length; i++) {
+    var currentChoice = activeQue.choices[i];
+    var queButton = document.createElement("button"); // create the button element
+    queButton.innerText = currentChoice; // for each answer after we create the button, we give the button a text value of either answer 1, 2,3 or 4
+    answers.classList.add("answers");
+    answers.appendChild(queButton);
+
+    //removes seconds from clock if incorrect answer is chosen
+    queButton.addEventListener("click", function () {
+      if (this.innerText != activeQue.answer) {
+        seconds -= 5;
+      } else {
+        // whenever the user chooses the correct answer, you increase the question index, empty the question container, and render the following question
+        questionIndex++;
+        generateQuiz();
+      }
+    });
+  }
+}
 // on start button click: starts timer & hides start page while showing questions.
 startButton.addEventListener("click", function () {
   timeInterval = setInterval(() => {
     seconds = seconds - 1;
     timer.textContent = seconds;
+
     if (seconds <= 0) {
       clearInterval(timeInterval);
+      //store in ls
     }
   }, 1000);
+
   startPage.setAttribute("class", "hidden");
   hero.setAttribute("class", "hidden");
   quiz.removeAttribute("class", "hidden");
   generateQuiz();
-});
-// create element
-function generateQuiz() {
-  questions.textContent = qArr[questionIndex].ask;
-}
-//   add class to apply properties (class should already exist in css/ can be added/modified)
-box.classList.add("dynamic-box");
-
-//   append the box to the questions element (the box becomes a child component to the questions component)
-
-// whenever the user chooses the correct answer, you increase the question index, empty the question container, and render the following question
-submitButton.addEventListener("click", () => {
-  questionIndex++;
-  console.log(qArr[questionIndex]);
 });

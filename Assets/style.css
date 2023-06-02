@@ -104,7 +104,17 @@ header {
   color: #d5cd33;
   border: 1px solid #d5cd33;
 }
+.questions {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  justify-content: center;
+  margin-top: 40px;
+  font-size: 25px;
+}
 
+.answers {
+}
 .hidden {
   display: none;
 }
