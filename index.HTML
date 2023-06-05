@@ -40,14 +40,16 @@
       <h2 id="questions" class="bd"></h2>
       <div id="answers" class="bd"></div>
     </div>
-    <div id="end-screen" class="hidden">
+    <div id="end-screen" class="hidden bd">
       <h2>Time's up!</h2>
-      <p>Here's what you got: <span id="user-score"></span></p>
-      <p>
+      <p>Your Score: <span id="user-score"></span></p>
+      <form>
         Your name:
         <input type="text" id="user-name" max="50" />
+        Your time:
+        <input type="text" id="time-finished" max="10" />
         <button id="submit-button">Submit!</button>
-      </p>
+      </form>
     </div>
     <script src="./Assets/script.js"></script>
   </body>

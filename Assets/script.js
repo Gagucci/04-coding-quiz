@@ -15,6 +15,7 @@ var questionIndex = 0;
 var questionIndex;
 var timeInterval;
 
+// array that holds objects with questions, choices, and answers
 const qArr = [
   {
     ask: "What is SEO?",
@@ -32,8 +33,8 @@ const qArr = [
     answer: "text-align",
   },
   {
-    ask: "Which one of these choices is === to '100'",
-    choices: ["100", "one hundred", "50 * 2", "100"],
+    ask: "Which one of these choices is === to '100' in Javascript?",
+    choices: ["'100'", "one hundred", "50 * 2", "100"],
     answer: "100",
   },
   {
@@ -41,11 +42,16 @@ const qArr = [
     choices: ["()", "[]", "{}", "<>"],
     answer: "[]",
   },
+  {
+    ask: "When put in local storage, what type is all data stored as?",
+    choices: ["numbers", "objects", "strings", "arrays"],
+    answer: "strings",
+  },
 ];
 
 (function initLS() {
-  var dataFromLS = JSON.parse(localStorage.getItem("highscores")); // find an item in LS with the name of 'highscores'
-
+  // find an item in LS with the name of 'highscores'
+  var dataFromLS = JSON.parse(localStorage.getItem("highscores"));
   // if that item doesn't exist, we create it and store it in LS under the name 'highscores'
   if (!dataFromLS) {
     localStorage.setItem("highscores", JSON.stringify({}));
@@ -73,11 +79,20 @@ function generateQuiz() {
       } else {
         // whenever the user chooses the correct answer, you increase the question index, empty the question container, and render the following question
         questionIndex++;
-        generateQuiz();
+
+        // on final question being answered correctly, hide the quiz and show the end screen, and stop the timer.
+        if (questionIndex === 4 && this.innerText === activeQue.answer) {
+          clearInterval(timeInterval);
+          quiz.setAttribute("class", "hidden");
+          endScreen.removeAttribute("class", "hidden");
+        } else {
+          generateQuiz();
+        }
       }
     });
   }
 }
+
 // on start button click: starts timer & hides start page while showing questions.
 startButton.addEventListener("click", function () {
   timeInterval = setInterval(() => {
@@ -85,8 +100,12 @@ startButton.addEventListener("click", function () {
     timer.textContent = seconds;
 
     if (seconds <= 0) {
-      clearInterval(timeInterval);
-      //store in ls
+      clearInterval(seconds);
+      //store time in local storage and display on end screen
+
+      quiz.setAttribute("class", "hidden");
+      endScreen.removeAttribute("class", "hidden");
+      userScore.textContent = seconds;
     }
   }, 1000);
 
