@@ -17,6 +17,7 @@ var seconds = 120;
 var questionIndex = 0;
 var questionIndex;
 var timeInterval;
+var dataFromLS = JSON.parse(localStorage.getItem("highscores"));
 
 // array that holds objects with questions, choices, and answers
 const qArr = [
@@ -52,7 +53,7 @@ const qArr = [
   },
 ];
 
-// initalizes local storage
+// initalizes local storage, creates an object with the name 'highscores' and stores it in LS if it doesn't exist
 (function initLS() {
   // find an item in LS with the name of 'highscores'
   var dataFromLS = JSON.parse(localStorage.getItem("highscores"));
@@ -62,14 +63,40 @@ const qArr = [
   }
 })();
 
+// on high score button click: hide start page and show high score screen
+hsButton.addEventListener("click", function () {
+  //prevents li's from being remade on each click
+  while (hsList.firstChild) {
+    hsList.removeChild(hsList.firstChild);
+  }
+  // stops timer and hides all screens while showing high score screen
+  clearInterval(timeInterval);
+  startPage.setAttribute("class", "hidden");
+  hero.setAttribute("class", "hidden");
+  quiz.setAttribute("class", "hidden");
+  endScreen.setAttribute("class", "hidden");
+  highScore.removeAttribute("class", "hidden");
+  highScore.setAttribute("class", "hs-screen");
+  // creates li's for each highscore in local storage and appends them to the high score screen
+  for (var key in dataFromLS) {
+    var newLi = document.createElement("li");
+    newLi.textContent = key + ": " + dataFromLS[key];
+    hsList.appendChild(newLi);
+  }
+});
+
 // on submit button click: store user name and score in local storage and display on high score screen while preventing default refresh
 submitButton.addEventListener("click", function (event) {
   event.preventDefault();
-  var dataFromLS = JSON.parse(localStorage.getItem("highscores"));
+
+  localStorage.getItem("highscores");
   dataFromLS[userName.value] = seconds;
   localStorage.setItem("highscores", JSON.stringify(dataFromLS));
+
   highScore.removeAttribute("class", "hidden");
+  highScore.setAttribute("class", "hs-screen");
   endScreen.setAttribute("class", "hidden");
+
   // for each key in the dataFromLS object, create a new li and append it to the high score screen
   for (var key in dataFromLS) {
     var newLi = document.createElement("li");
@@ -87,6 +114,11 @@ restartButton.addEventListener("click", function () {
   hero.setAttribute("class", "hero");
   startPage.removeAttribute("class", "hidden");
   timer.textContent = seconds;
+  userName.value = "";
+  // removes all li's from high score screen
+  while (hsList.firstChild) {
+    hsList.removeChild(hsList.firstChild);
+  }
 });
 
 // Function that generates questions with answers on screen.
@@ -124,23 +156,26 @@ function generateQuiz() {
     });
   }
 }
+
 // on start button click: starts timer & hides start page while showing questions.
 startButton.addEventListener("click", function () {
   timeInterval = setInterval(() => {
     seconds = seconds - 1;
     timer.textContent = seconds;
+
     // if timer reaches 0, hide quiz and show end screen
     if (seconds <= 0) {
       seconds = 0;
       clearInterval(timeInterval);
       quiz.setAttribute("class", "hidden");
       endScreen.removeAttribute("class", "hidden");
-      //store time in local storage and display on end screen
+      endScreen.setAttribute("class", "end-screen");
       localStorage.setItem("highscores", seconds);
       userScore.textContent = seconds;
     }
     timer.textContent = seconds;
   }, 1000);
+
   startPage.setAttribute("class", "hidden");
   hero.setAttribute("class", "hidden");
   quiz.removeAttribute("class", "hidden");

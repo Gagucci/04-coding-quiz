@@ -4,7 +4,7 @@
   margin: 0;
   padding: 0;
 }
-
+/*sets header background color to red, text color to white*/
 header {
   width: 100%;
   background-color: #eb8484;
@@ -12,11 +12,7 @@ header {
   color: white;
   padding: 10px;
 }
-
-.bd {
-  border: 1px red solid;
-}
-
+/*sets header title to center, sets font size*/
 .header--title {
   position: relative;
   top: 20px;
@@ -26,7 +22,7 @@ header {
   padding: 0;
   align-content: center;
 }
-
+/*sets header timer to right, sets font size*/
 .timer-container {
   height: 25px;
   display: flex;
@@ -34,7 +30,7 @@ header {
   justify-content: space-between;
   font-size: 25px;
 }
-
+/*removes border from high score button, changes color, sets size*/
 .hs {
   border: none;
   background-color: inherit;
@@ -44,12 +40,13 @@ header {
   display: inline-block;
   color: white;
 }
+/*highlights button on hover, gives background and border radius*/
 .hs:hover {
   background: #cc8f8f;
   border-radius: 10px;
   opacity: 0.75;
 }
-
+/*hero photos set to center and sized*/
 .hero {
   display: flex;
   flex-direction: column;
@@ -73,7 +70,7 @@ header {
   height: 250px;
   justify-content: center;
 }
-
+/*sets size of start page, aligns all content and text to center, adds spacing*/
 .start-container {
   flex-direction: column;
   height: 25vh;
@@ -83,13 +80,13 @@ header {
   justify-content: center;
   color: #938e8d;
 }
-
+/*sets font size of start page text*/
 .start-container h1 {
   position: relative;
   top: 20px;
   font-size: 35px;
 }
-
+/*sets font size, rounds off button, removes border, sets color to gray, adds spacing*/
 .start-container button {
   padding: 10px;
   position: relative;
@@ -99,12 +96,13 @@ header {
   color: #938e8d;
   margin-top: 50px;
 }
-
+/*makes button reactive/dynamic*/
 .start-container button:hover {
   font-size: 55px;
   color: #d5cd33;
   text-decoration: underline;
 }
+/*sets questions to center of container, sets font size and color*/
 .questions {
   display: flex;
   flex-direction: column;
@@ -114,12 +112,12 @@ header {
   font-size: 35px;
   color: #938e8d;
 }
-
+/*adds spacing between each answer button*/
 .answers {
   display: flex;
   justify-content: space-evenly;
 }
-
+/*rounds each button, sets text color, sets font size*/
 .answers button {
   padding: 10px;
   font-size: 25px;
@@ -128,11 +126,12 @@ header {
   color: #938e8d;
   margin-top: 400px;
 }
-
+/*makes answer buttons reactive/dynamic, adds underline*/
 .answers button:hover {
   font-size: 30px;
   text-decoration: underline;
 }
+/*sets text and content to center, sets font color*/
 .end-screen {
   display: flex;
   flex-direction: column;
@@ -140,29 +139,31 @@ header {
   justify-content: center;
   color: #938e8d;
 }
-
+/*adds spacing, sets font size and color, adds underline to title*/
 .end-screen h2 {
   margin-top: 35px;
   font-size: 75px;
   text-decoration: underline;
   color: #47a0ed;
 }
-
+/*adds spacing vertically between title, sets font size*/
 .end-screen p {
-  margin-top: 100px;
+  margin-top: 125px;
   font-size: 50px;
   align-items: center;
 }
-
+/*adds spacing vertically between score text, sets font size*/
 .submit {
   margin-top: 250px;
   font-size: 30px;
 }
+/*sets size of of input field, rounds corners*/
 .submit input {
   font-size: 30px;
   border-radius: 10px;
   border: gray solid;
 }
+/*sets size of submit button, removes border, sets font size*/
 .submit button {
   padding: 5px;
   font-size: 25px;
@@ -170,7 +171,44 @@ header {
   border: none;
   color: #938e8d;
 }
-
+/*makes submit button reactive/dynamic*/
+.submit button:hover {
+  font-size: 30px;
+}
+/*sets contents to display vertically in order, aligns text to center, sets text color*/
+.hs-screen {
+  flex-direction: column;
+  text-align: center;
+  justify-content: center;
+  color: #938e8d;
+  position: relative;
+}
+/*sets color of text and font size, gives text underline*/
+.hs-screen h2 {
+  margin-top: 35px;
+  font-size: 55px;
+  text-decoration: underline;
+  color: #47a0ed;
+}
+/*sets font size of high score list*/
+.hs-screen ol {
+  font-size: 30px;
+  align-items: center;
+}
+/*sets size of restart button, sets font size, rounds corners of button*/
+.hs-screen button {
+  margin-top: 20px;
+  padding: 5px;
+  font-size: 35px;
+  border-radius: 10px;
+  border: none;
+  color: #938e8d;
+}
+/*makes restart button reactive/dynamic*/
+.hs-screen button:hover {
+  font-size: 40px;
+}
+/*makes elements with this class not display visually on screen*/
 .hidden {
   display: none;
 }

@@ -41,18 +41,20 @@
       <div id="answers"></div>
     </div>
     <div id="end-screen" class="hidden">
-      <h2 class="bd">Time's up!</h2>
-      <p class="bd">Your Score: <span id="user-score"></span></p>
-      <form class="bd submit">
+      <h2>Time's up!</h2>
+      <p>Your Score: <span id="user-score"></span></p>
+      <form class="submit">
         Your name:
         <input type="text" id="user-name" max="50" />
         <button id="submit-button">Submit!</button>
       </form>
     </div>
-    <div id="highscore-screen" class="hidden bd">
+    <div id="highscore-screen" class="hidden">
       <h2>High Scores</h2>
-      <ol id="highscore-list" class="bd"></ol>
-      <button id="restart-button" class="bd">Restart</button>
+      <ol id="highscore-list"></ol>
+      <div class="wrapper"> 
+        <button id="restart-button">Restart</button>
+      </div>
     <script src="./Assets/script.js"></script>
   </body>
 </html>
