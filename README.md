@@ -15,3 +15,11 @@ Received help from my tutor Tudor Tocan, my bootcamp instructor Robbert, and Stu
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
 ## Images
+
+![Screenshot of the quiz website](./assets/images/quizscreenshot.png)
+
+## Links
+
+[Link to Github Repository](https://github.com/Gagucci/04-coding-quiz.git)
+
+[Link to Deployed Webpage](https://gagucci.github.io/04-coding-quiz/)
