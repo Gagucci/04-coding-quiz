@@ -15,9 +15,9 @@ header {
 /*sets header title to center, sets font size*/
 .header--title {
   position: relative;
-  top: 20px;
+  top: 30px;
   text-align: center;
-  font-size: 35px;
+  font-size: 45px;
   margin: 0;
   padding: 0;
   align-content: center;
@@ -28,14 +28,13 @@ header {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  font-size: 30px;
+  font-size: 40px;
 }
 /*removes border from high score button, changes color, sets size*/
 .hs {
   border: none;
   background-color: inherit;
-  padding: 5px;
-  font-size: 30px;
+  font-size: 35px;
   cursor: pointer;
   display: inline-block;
   color: white;
@@ -51,14 +50,14 @@ header {
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin-top: 30px;
+  margin-top: 40px;
   justify-content: center;
 }
 /*displays hero photos correctly*/
 .code {
   display: flex;
-  width: 250;
-  height: 275px;
+  width: 375px;
+  height: 300px;
   justify-content: center;
   align-items: center;
 }
@@ -85,7 +84,7 @@ header {
 .start-container h1 {
   position: relative;
   top: 20px;
-  font-size: 35px;
+  font-size: 45px;
 }
 /*sets font size, rounds off button, removes border, sets color to gray, adds spacing*/
 .start-container button {
@@ -110,7 +109,7 @@ header {
   text-align: center;
   justify-content: center;
   margin-top: 75px;
-  font-size: 35px;
+  font-size: 45px;
   color: #938e8d;
 }
 /*adds spacing between each answer button*/
@@ -121,15 +120,15 @@ header {
 /*rounds each button, sets text color, sets font size*/
 .answers button {
   padding: 10px;
-  font-size: 25px;
+  font-size: 33px;
   border-radius: 10px;
   border: none;
   color: #938e8d;
-  margin-top: 400px;
+  margin-top: 450px;
 }
 /*makes answer buttons reactive/dynamic, adds underline*/
 .answers button:hover {
-  font-size: 30px;
+  font-size: 40px;
   text-decoration: underline;
 }
 /*sets text and content to center, sets font color*/
@@ -155,19 +154,19 @@ header {
 }
 /*adds spacing vertically between score text, sets font size*/
 .submit {
-  margin-top: 250px;
-  font-size: 30px;
+  margin-top: 350px;
+  font-size: 35px;
 }
 /*sets size of of input field, rounds corners*/
 .submit input {
-  font-size: 30px;
+  font-size: 35px;
   border-radius: 10px;
   border: gray solid;
 }
 /*sets size of submit button, removes border, sets font size*/
 .submit button {
   padding: 5px;
-  font-size: 25px;
+  font-size: 35px;
   border-radius: 10px;
   border: none;
   color: #938e8d;
@@ -193,7 +192,7 @@ header {
 }
 /*sets font size of high score list*/
 .hs-screen ol {
-  font-size: 30px;
+  font-size: 35px;
   align-items: center;
 }
 /*sets size of restart button, sets font size, rounds corners of button*/
