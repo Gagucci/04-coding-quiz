@@ -16,7 +16,7 @@ Received help from my tutor Tudor Tocan, my bootcamp instructor Robbert, and Stu
 
 ## Images
 
-![Screenshot of the quiz website](./assets/images/quizscreenshot.png)
+![Screenshot of the quiz website](./assets/images/screenshot.png)
 
 ## Links
 
