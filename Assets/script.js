@@ -9,6 +9,7 @@ var answers = document.getElementById("answers");
 var endScreen = document.getElementById("end-screen");
 var userScore = document.getElementById("user-score");
 var userName = document.getElementById("user-name");
+var timeFinished = document.getElementById("time-finished");
 var submitButton = document.getElementById("submit-button");
 var seconds = 120;
 var questionIndex = 0;
@@ -22,8 +23,8 @@ const qArr = [
     choices: [
       "Separate every organization",
       "Super energetic otters",
-      "Search engine authorization",
       "Search engine optimization",
+      "Search engine authorization",
     ],
     answer: "Search engine optimization",
   },
@@ -34,7 +35,7 @@ const qArr = [
   },
   {
     ask: "Which one of these choices is === to '100' in Javascript?",
-    choices: ["'100'", "one hundred", "50 * 2", "100"],
+    choices: ["'100'", "100", "50 * 2", "one hundred"],
     answer: "100",
   },
   {
@@ -76,15 +77,16 @@ function generateQuiz() {
     queButton.addEventListener("click", function () {
       if (this.innerText != activeQue.answer) {
         seconds -= 5;
+        this.style.color = "#ED5347";
       } else {
         // whenever the user chooses the correct answer, you increase the question index, empty the question container, and render the following question
         questionIndex++;
-
         // on final question being answered correctly, hide the quiz and show the end screen, and stop the timer.
-        if (questionIndex === 4 && this.innerText === activeQue.answer) {
+        if (questionIndex === 5 && this.innerText === activeQue.answer) {
           clearInterval(timeInterval);
           quiz.setAttribute("class", "hidden");
           endScreen.removeAttribute("class", "hidden");
+          userScore.textContent = seconds;
         } else {
           generateQuiz();
         }
@@ -92,23 +94,22 @@ function generateQuiz() {
     });
   }
 }
-
 // on start button click: starts timer & hides start page while showing questions.
 startButton.addEventListener("click", function () {
   timeInterval = setInterval(() => {
     seconds = seconds - 1;
     timer.textContent = seconds;
-
+    // if timer reaches 0, hide quiz and show end screen
     if (seconds <= 0) {
-      clearInterval(seconds);
-      //store time in local storage and display on end screen
-
+      seconds = 0;
+      clearInterval(timeInterval);
       quiz.setAttribute("class", "hidden");
       endScreen.removeAttribute("class", "hidden");
       userScore.textContent = seconds;
+      //store time in local storage and display on end screen
     }
+    timer.textContent = seconds;
   }, 1000);
-
   startPage.setAttribute("class", "hidden");
   hero.setAttribute("class", "hidden");
   quiz.removeAttribute("class", "hidden");

@@ -77,7 +77,7 @@ header {
   flex-direction: column;
   height: 25vh;
   text-align: center;
-  margin: 10px;
+  margin-bottom: 10px;
   padding: 10px;
   justify-content: center;
   color: #938e8d;
@@ -85,7 +85,7 @@ header {
 
 .start-container h1 {
   position: relative;
-  top: 30px;
+  top: 20px;
   font-size: 35px;
 }
 
@@ -100,22 +100,37 @@ header {
 }
 
 .start-container button:hover {
-  font-size: 60px;
+  font-size: 55px;
   color: #d5cd33;
-  border: 1px solid #d5cd33;
 }
 .questions {
   display: flex;
   flex-direction: column;
   text-align: center;
   justify-content: center;
-  margin-top: 40px;
-  font-size: 25px;
+  margin-top: 75px;
+  font-size: 35px;
+  color: #938e8d;
 }
 
 .answers {
-  justify-content: space-between;
+  display: flex;
+  justify-content: space-evenly;
 }
+
+.answers button {
+  padding: 10px;
+  font-size: 25px;
+  border-radius: 10px;
+  border: none;
+  color: #938e8d;
+  margin-top: 400px;
+}
+
+.answers button:hover {
+  font-size: 30px;
+}
+
 .hidden {
   display: none;
 }
