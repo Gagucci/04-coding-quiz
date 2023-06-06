@@ -54,6 +54,7 @@ header {
   margin-top: 30px;
   justify-content: center;
 }
+/*displays hero photos correctly*/
 .code {
   display: flex;
   width: 250;
