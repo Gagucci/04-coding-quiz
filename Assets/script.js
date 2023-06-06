@@ -1,5 +1,7 @@
 var timer = document.getElementById("time");
-var highScore = document.getElementById("highscore");
+var highScore = document.getElementById("highscore-screen");
+var hsList = document.getElementById("highscore-list");
+var hsButton = document.getElementById("highscore-button");
 var startPage = document.getElementById("start-page");
 var startButton = document.getElementById("start-button");
 var hero = document.getElementById("hero");
@@ -9,8 +11,8 @@ var answers = document.getElementById("answers");
 var endScreen = document.getElementById("end-screen");
 var userScore = document.getElementById("user-score");
 var userName = document.getElementById("user-name");
-var timeFinished = document.getElementById("time-finished");
 var submitButton = document.getElementById("submit-button");
+var restartButton = document.getElementById("restart-button");
 var seconds = 120;
 var questionIndex = 0;
 var questionIndex;
@@ -50,6 +52,7 @@ const qArr = [
   },
 ];
 
+// initalizes local storage
 (function initLS() {
   // find an item in LS with the name of 'highscores'
   var dataFromLS = JSON.parse(localStorage.getItem("highscores"));
@@ -59,13 +62,39 @@ const qArr = [
   }
 })();
 
+// on submit button click: store user name and score in local storage and display on high score screen while preventing default refresh
+submitButton.addEventListener("click", function (event) {
+  event.preventDefault();
+  var dataFromLS = JSON.parse(localStorage.getItem("highscores"));
+  dataFromLS[userName.value] = seconds;
+  localStorage.setItem("highscores", JSON.stringify(dataFromLS));
+  highScore.removeAttribute("class", "hidden");
+  endScreen.setAttribute("class", "hidden");
+  // for each key in the dataFromLS object, create a new li and append it to the high score screen
+  for (var key in dataFromLS) {
+    var newLi = document.createElement("li");
+    newLi.textContent = key + ": " + dataFromLS[key];
+    hsList.appendChild(newLi);
+  }
+});
+
+// on restart button click: reset timer, question index, and show start page while hiding highscore screen
+restartButton.addEventListener("click", function () {
+  seconds = 120;
+  questionIndex = 0;
+  highScore.setAttribute("class", "hidden");
+  hero.removeAttribute("class", "hidden");
+  hero.setAttribute("class", "hero");
+  startPage.removeAttribute("class", "hidden");
+  timer.textContent = seconds;
+});
+
 // Function that generates questions with answers on screen.
 function generateQuiz() {
   answers.innerHTML = "";
   var activeQue = qArr[questionIndex];
   questions.textContent = activeQue.ask;
   quiz.classList.add("questions");
-
   for (let i = 0; i < activeQue.choices.length; i++) {
     var currentChoice = activeQue.choices[i];
     var queButton = document.createElement("button"); // create the button element
@@ -86,6 +115,7 @@ function generateQuiz() {
           clearInterval(timeInterval);
           quiz.setAttribute("class", "hidden");
           endScreen.removeAttribute("class", "hidden");
+          endScreen.setAttribute("class", "end-screen");
           userScore.textContent = seconds;
         } else {
           generateQuiz();
@@ -105,8 +135,9 @@ startButton.addEventListener("click", function () {
       clearInterval(timeInterval);
       quiz.setAttribute("class", "hidden");
       endScreen.removeAttribute("class", "hidden");
-      userScore.textContent = seconds;
       //store time in local storage and display on end screen
+      localStorage.setItem("highscores", seconds);
+      userScore.textContent = seconds;
     }
     timer.textContent = seconds;
   }, 1000);

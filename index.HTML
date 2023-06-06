@@ -21,7 +21,7 @@
 
       <div class="timer-container">
         <div id="timer">Time: <span id="time">120</span> seconds</div>
-        <button id="highscore" class="hs">High scores</button>
+        <button id="highscore-button" class="hs">High scores</button>
       </div>
     </header>
     <div id="hero" class="hero">
@@ -41,16 +41,18 @@
       <div id="answers"></div>
     </div>
     <div id="end-screen" class="hidden">
-      <h2>Time's up!</h2>
-      <p>Your Score: <span id="user-score"></span></p>
-      <form>
+      <h2 class="bd">Time's up!</h2>
+      <p class="bd">Your Score: <span id="user-score"></span></p>
+      <form class="bd submit">
         Your name:
         <input type="text" id="user-name" max="50" />
-        Your time:
-        <input type="text" id="time-finished" max="10" />
         <button id="submit-button">Submit!</button>
       </form>
     </div>
+    <div id="highscore-screen" class="hidden bd">
+      <h2>High Scores</h2>
+      <ol id="highscore-list" class="bd"></ol>
+      <button id="restart-button" class="bd">Restart</button>
     <script src="./Assets/script.js"></script>
   </body>
 </html>
