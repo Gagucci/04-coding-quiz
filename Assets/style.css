@@ -28,14 +28,14 @@ header {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  font-size: 25px;
+  font-size: 30px;
 }
 /*removes border from high score button, changes color, sets size*/
 .hs {
   border: none;
   background-color: inherit;
   padding: 5px;
-  font-size: 25px;
+  font-size: 30px;
   cursor: pointer;
   display: inline-block;
   color: white;
@@ -58,7 +58,7 @@ header {
 .code {
   display: flex;
   width: 250;
-  height: 200px;
+  height: 275px;
   justify-content: center;
   align-items: center;
 }
@@ -67,8 +67,8 @@ header {
   display: flex;
   position: relative;
   bottom: 30px;
-  width: 250px;
-  height: 250px;
+  width: 300px;
+  height: 300px;
   justify-content: center;
 }
 /*sets size of start page, aligns all content and text to center, adds spacing*/
